@@ -100,13 +100,17 @@ public class HumanController : MonoBehaviour
                 break;
         }
     }
+
+    public void WalkToTarget(Vector3 position)
+    {
+        targetPosition = position;
+        CurrentState = State.WalkingToTarget;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("MeowBox"))
-        {
-            targetPosition = collision.transform.parent.position;
-            CurrentState = State.WalkingToTarget;
-        }
+            WalkToTarget(collision.transform.parent.position);
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Food"))
         {
             Destroy(collision.gameObject);
