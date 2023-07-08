@@ -16,13 +16,15 @@ public class HumanController : MonoBehaviour
 
     private enum State
     {
-        Walking,
         Idle,
+        WalkingRandomly,
+        WalkingToTarget,
     }
 
     private State currentState = State.Idle;
     private float stateTimer = 0.0f;
     private float diretcion = -1;
+    private Vector3 targetPosition = Vector3.zero;
 
     private void StartAction()
     {
@@ -43,33 +45,51 @@ public class HumanController : MonoBehaviour
         animator.SetBool("grounded", grounded && rbody.velocity.y < 1);
         stateTimer += Time.fixedDeltaTime;
 
-        if (stateTimer > 2.0f)
+        switch (currentState)
         {
-            switch (currentState)
-            {
-                case State.Idle:
-                    currentState = State.Walking;
+            case State.Idle:
+                if (stateTimer > 2.0f)
+                {
+                    stateTimer = 0.0f;
+                    currentState = State.WalkingRandomly;
                     diretcion *= -1;
                     move.StartAcceleration(diretcion);
                     sprite.flipX = diretcion > 0;
                     animator.SetBool("walking", true);
-                    break;
-                case State.Walking:
+                }
+                break;
+            case State.WalkingRandomly:
+                move.UpdateMovement(diretcion);
+                if (stateTimer > 2.0f)
+                {
+                    stateTimer = 0.0f;
                     currentState = State.Idle;
                     move.StartDeceleration();
                     animator.SetBool("walking", false);
-                    break;
-            }
-            stateTimer = 0.0f;
-        }
-
-        switch (currentState)
-        {
-            case State.Idle:
+                }
                 break;
-            case State.Walking:
+            case State.WalkingToTarget:
                 move.UpdateMovement(diretcion);
+                if (Mathf.Abs((transform.position - targetPosition).x) < 0.5f)
+                {
+                    stateTimer = 0.0f;
+                    currentState = State.Idle;
+                    move.StartDeceleration();
+                    animator.SetBool("walking", false);
+                }
                 break;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("MeowBox"))
+        {
+            currentState = State.WalkingToTarget;
+            targetPosition = collision.transform.parent.position;
+            diretcion = (targetPosition - transform.position).x < 0 ? -1 : 1;
+            move.StartAcceleration(diretcion);
+            sprite.flipX = diretcion > 0;
+            animator.SetBool("walking", true);
         }
     }
 }
