@@ -17,6 +17,10 @@ public class GameplayScreen : Singleton<GameplayScreen>
     [NonSerialized]
     public float MeterCatStamina = 1.0f;
 
+    public const float MeterDepleteRateHumanHappiness = 0.001f;
+    public const float MeterDepleteRateHumanHunger = 0.001f;
+    public const float MeterDepleteRateCatStamina = 0.001f;
+
     public enum State
     {
         Gameplay,
@@ -39,14 +43,20 @@ public class GameplayScreen : Singleton<GameplayScreen>
                         break;
                     }
 
-                    MeterHumanHappiness -= Time.deltaTime * 0.2f;
+                    MeterHumanHappiness -= Time.deltaTime * MeterDepleteRateHumanHappiness;
                     MeterHumanHappiness = Mathf.Clamp01(MeterHumanHappiness);
 
-                    MeterHumanHunger -= Time.deltaTime * 0.3f;
+                    MeterHumanHunger -= Time.deltaTime * MeterDepleteRateHumanHunger;
                     MeterHumanHunger = Mathf.Clamp01(MeterHumanHunger);
 
-                    MeterCatStamina -= Time.deltaTime * 0.1f;
+                    MeterCatStamina -= Time.deltaTime * MeterDepleteRateCatStamina;
                     MeterCatStamina = Mathf.Clamp01(MeterCatStamina);
+
+                    if (MeterHumanHappiness <= 0.0f || MeterHumanHunger <= 0.0f || MeterCatStamina <= 0.0f)
+                    {
+                        CurrentState = State.GameOver;
+                        break;
+                    }
                 }
                 break;
         }
