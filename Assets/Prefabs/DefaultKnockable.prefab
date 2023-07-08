@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DefaultKnockable
       objectReference: {fileID: 0}
+    - target: {fileID: 5110692357018644105, guid: 41493288378b9c94eb83c2aea3f6940a, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 8796361198635271851, guid: 41493288378b9c94eb83c2aea3f6940a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -96,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 871f7d28959cce4479982cd11c312210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockDirection: {x: 1, y: 0}
+  _knockDirection: {x: 1, y: 0}
   KnockForce: 100
   onKnock:
     m_PersistentCalls:

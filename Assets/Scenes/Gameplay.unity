@@ -340,7 +340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 388429550}
   - component: {fileID: 388429551}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,10 +534,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2720352673253068082, guid: 80f89535f7aa0834f960c19d6f0935d3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2022956487}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80f89535f7aa0834f960c19d6f0935d3, type: 3}
 --- !u!1001 &701524471
 PrefabInstance:
@@ -1257,32 +1254,11 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &2022956476 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2720352673253068082, guid: 80f89535f7aa0834f960c19d6f0935d3, type: 3}
-  m_PrefabInstance: {fileID: 543046059}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2022956486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5059394773547167795, guid: 80f89535f7aa0834f960c19d6f0935d3, type: 3}
   m_PrefabInstance: {fileID: 543046059}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2022956487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022956476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a16dec657edbbe459f14392de3944bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stepClips:
-  - {fileID: 8300000, guid: 199ade8747cbffb4787540ef2667d83a, type: 3}
-  - {fileID: 8300000, guid: fbc059741fe5e4240a471e30c1216af5, type: 3}
-  - {fileID: 8300000, guid: fe1975bc72fa8a0448161fa6af58e08b, type: 3}
 --- !u!1001 &2081146252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1292,12 +1268,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -1163400579469942051, guid: fcd8686b94e9b594cb1a3152bb357e15, type: 3}
-      propertyPath: KnockDirection.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1163400579469942051, guid: fcd8686b94e9b594cb1a3152bb357e15, type: 3}
-      propertyPath: _knockDirection.x
-      value: 1
+      propertyPath: KnockForce
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: -1163400579469942051, guid: fcd8686b94e9b594cb1a3152bb357e15, type: 3}
       propertyPath: _knockDirection.y
