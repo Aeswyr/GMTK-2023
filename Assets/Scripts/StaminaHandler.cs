@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StaminaHandler : MonoBehaviour
+public class StaminaHandler : ScriptableObject
 {
     [SerializeField] private float moveCost = .001f;
     [SerializeField] private float jumpCost = .10f;
