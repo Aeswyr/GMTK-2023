@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameplayScreen : Singleton<GameplayScreen>
 {
     public float time;
-    public const float RealSecondsToInGameHours = 1;
+    public const float RealSecondsToInGameHours = 60;
 
     public enum State
     {
