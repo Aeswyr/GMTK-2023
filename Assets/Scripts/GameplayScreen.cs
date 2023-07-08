@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,8 +7,15 @@ using UnityEngine;
 
 public class GameplayScreen : Singleton<GameplayScreen>
 {
-    public float time;
+    private float time;
     public const float RealSecondsToInGameHours = 60;
+
+    [NonSerialized]
+    public float MeterHumanHappiness = 1.0f;
+    [NonSerialized]
+    public float MeterHumanHunger = 1.0f;
+    [NonSerialized]
+    public float MeterCatStamina = 1.0f;
 
     public enum State
     {
@@ -15,6 +23,7 @@ public class GameplayScreen : Singleton<GameplayScreen>
         GameOver,
     }
 
+    [NonSerialized]
     public State CurrentState = State.Gameplay;
 
     public void Update()
@@ -25,7 +34,19 @@ public class GameplayScreen : Singleton<GameplayScreen>
                 {
                     time += Time.deltaTime;
                     if (time / RealSecondsToInGameHours >= 12.0f)
+                    {
                         CurrentState = State.GameOver;
+                        break;
+                    }
+
+                    MeterHumanHappiness -= Time.deltaTime * 0.2f;
+                    MeterHumanHappiness = Mathf.Clamp01(MeterHumanHappiness);
+
+                    MeterHumanHunger -= Time.deltaTime * 0.3f;
+                    MeterHumanHunger = Mathf.Clamp01(MeterHumanHunger);
+
+                    MeterCatStamina -= Time.deltaTime * 0.1f;
+                    MeterCatStamina = Mathf.Clamp01(MeterCatStamina);
                 }
                 break;
         }
