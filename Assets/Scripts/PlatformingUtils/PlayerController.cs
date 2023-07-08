@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private Rigidbody2D rbody;
     [SerializeField] private JumpHandler jump;
     [SerializeField] private MovementHandler move;
     [SerializeField] private GroundedCheck ground;
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         grounded = ground.CheckGrounded();
 
-        animator.SetBool("grounded", grounded);
+        animator.SetBool("grounded", grounded && rbody.velocity.y < 1);
 
         if (InputHandler.Instance.dir.x != 0 && InputHandler.Instance.move.pressed) {
             animator.SetBool("walking", true);
@@ -42,6 +43,19 @@ public class PlayerController : MonoBehaviour
 
         if (InputHandler.Instance.jump.pressed) {
             jump.StartJump();
+            animator.SetBool("walking", false);
+            animator.SetBool("grounded", false);
+            animator.SetTrigger("jump");
+        }
+
+        if (grounded && InputHandler.Instance.primary.pressed) {
+            animator.SetBool("walking", false);
+            animator.SetTrigger("push");
+        }
+
+        if (grounded && InputHandler.Instance.secondary.pressed) {
+            animator.SetBool("walking", false);
+            animator.SetTrigger("meow");
         }
         
     }

@@ -374,6 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8246658348713713979}
+  rbody: {fileID: 6077534730897900736}
   jump: {fileID: 2809871549590531062}
   move: {fileID: 6886897762068446972}
   ground: {fileID: 1738377233889933794}
