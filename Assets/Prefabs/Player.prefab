@@ -335,8 +335,9 @@ Transform:
   - {fileID: 6973705725019903507}
   - {fileID: 3935798209849956064}
   - {fileID: 1283286452432480965}
+  - {fileID: 7324980965281958731}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &-7733837568608383394
 SpriteRenderer:
@@ -600,6 +601,7 @@ MonoBehaviour:
   ground: {fileID: 1738377233889933794}
   sprite: {fileID: -7733837568608383394}
   interactBox: {fileID: 1733373008799157721}
+  stamina: {fileID: 37984742695083395}
 --- !u!114 &-7032719149619303916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,3 +723,50 @@ MonoBehaviour:
   buttonCount: 5
   bufferFrames: 5
   bufferEnabled: 1
+--- !u!1 &9089139564761650984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7324980965281958731}
+  - component: {fileID: 37984742695083395}
+  m_Layer: 0
+  m_Name: Stamina
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7324980965281958731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9089139564761650984}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5059394773547167795}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &37984742695083395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9089139564761650984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c08e043fc46274bbb0ebc2fd638723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveCost: 0.001
+  jumpCost: 0.1
+  meowCost: 0.01
