@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private MovementHandler move;
     [SerializeField] private GroundedCheck ground;
     [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private GameObject interactBox;
 
     private bool grounded; // is the player touching the ground this physics frame
     private bool actionable = true;
@@ -64,6 +65,8 @@ public class PlayerController : MonoBehaviour
             StartAction();
             animator.SetBool("walking", false);
             animator.SetTrigger("meow");
+            interactBox.SetActive(true);
+            interactBox.transform.localPosition = Vector3.zero;
         }
     }
 
@@ -74,5 +77,7 @@ public class PlayerController : MonoBehaviour
 
     private void EndAction() {
         actionable = true;
+        interactBox.SetActive(false);
+        interactBox.transform.localPosition = 100 * Vector3.up;
     }
 }
