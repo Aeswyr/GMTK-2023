@@ -10,8 +10,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private MovementHandler move;
     [SerializeField] private GroundedCheck ground;
     [SerializeField] private SpriteRenderer sprite;
-    [SerializeField] private GameObject interactBox;
     [SerializeField] private StaminaHandler stamina;
+
+    [SerializeField] private GameObject interactBox;
+    [SerializeField] private GameObject pushBox;
+    [SerializeField] private GameObject meowBox;
 
     private bool grounded; // is the player touching the ground this physics frame
     private bool actionable = true;
@@ -75,6 +78,7 @@ public class PlayerController : MonoBehaviour
             StartAction();
             animator.SetBool("walking", false);
             animator.SetTrigger("push");
+            pushBox.SetActive(true);
         }
 
         if (grounded && InputHandler.Instance.secondary.pressed)
@@ -83,6 +87,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("walking", false);
             animator.SetTrigger("meow");
             interactBox.SetActive(true);
+            meowBox.SetActive(true);
             interactBox.transform.localPosition = Vector3.zero;
             stamina.DecreaseByMeowCost();
         }
@@ -99,5 +104,7 @@ public class PlayerController : MonoBehaviour
         actionable = true;
         interactBox.SetActive(false);
         interactBox.transform.localPosition = 100 * Vector3.up;
+        meowBox.SetActive(false);
+        pushBox.SetActive(false);
     }
 }

@@ -17,12 +17,12 @@ TagManager:
   - Interactable
   - Hitbox
   - Hurtbox
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - MeowBox
+  - Push
+  - Pushable
+  - Floor
+  - Food
+  - HumanAwareness
   - 
   - 
   - 

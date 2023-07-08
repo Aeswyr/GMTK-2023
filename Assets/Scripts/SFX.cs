@@ -60,6 +60,7 @@ public class SFX : MonoBehaviour
     public static void Play(AudioClip clip)
     {
         var audioSource = Instance.Pool.Get();
+        if (!audioSource) return;
         audioSource.clip = clip;
         audioSource.Play();
         Instance.StartCoroutine(ReleaseAfterLength(audioSource, clip));

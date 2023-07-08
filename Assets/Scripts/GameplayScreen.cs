@@ -18,7 +18,7 @@ public class GameplayScreen : Singleton<GameplayScreen>
     public float MeterCatStamina = 1.0f;
 
     public const float MeterDepleteRateHumanHappiness = 0.001f;
-    public const float MeterDepleteRateHumanHunger = 0.001f;
+    public const float MeterDepleteRateHumanHunger = 0.01f;
     public const float MeterDepleteRateCatStamina = 0.001f;
 
     public enum State

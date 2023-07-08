@@ -16,13 +16,49 @@ public class HumanController : MonoBehaviour
 
     private enum State
     {
-        Walking,
         Idle,
+        WalkingRandomly,
+        WalkingToTarget,
     }
 
     private State currentState = State.Idle;
+    private State CurrentState
+    {
+        get => currentState;
+        set
+        {
+            currentState = value;
+            stateTimer = 0.0f;
+            switch (currentState)
+            {
+                case State.Idle:
+                    {
+                        currentState = State.Idle;
+                        move.StartDeceleration();
+                        animator.SetBool("walking", false);
+                    }
+                    break;
+                case State.WalkingRandomly:
+                    {
+                        move.StartAcceleration(diretcion);
+                        sprite.flipX = diretcion > 0;
+                        animator.SetBool("walking", true);
+                    }
+                    break;
+                case State.WalkingToTarget:
+                    {
+                        diretcion = (targetPosition - transform.position).x < 0 ? -1 : 1;
+                        move.StartAcceleration(diretcion);
+                        sprite.flipX = diretcion > 0;
+                        animator.SetBool("walking", true);
+                    }
+                    break;
+            }
+        }
+    }
     private float stateTimer = 0.0f;
     private float diretcion = -1;
+    private Vector3 targetPosition = Vector3.zero;
 
     private void StartAction()
     {
@@ -43,33 +79,43 @@ public class HumanController : MonoBehaviour
         animator.SetBool("grounded", grounded && rbody.velocity.y < 1);
         stateTimer += Time.fixedDeltaTime;
 
-        if (stateTimer > 2.0f)
-        {
-            switch (currentState)
-            {
-                case State.Idle:
-                    currentState = State.Walking;
-                    diretcion *= -1;
-                    move.StartAcceleration(diretcion);
-                    sprite.flipX = diretcion > 0;
-                    animator.SetBool("walking", true);
-                    break;
-                case State.Walking:
-                    currentState = State.Idle;
-                    move.StartDeceleration();
-                    animator.SetBool("walking", false);
-                    break;
-            }
-            stateTimer = 0.0f;
-        }
-
         switch (currentState)
         {
             case State.Idle:
+                if (stateTimer > 2.0f)
+                {
+                    diretcion *= -1;
+                    CurrentState = State.WalkingRandomly;
+                }
                 break;
-            case State.Walking:
+            case State.WalkingRandomly:
                 move.UpdateMovement(diretcion);
+                if (stateTimer > 2.0f)
+                    CurrentState = State.Idle;
                 break;
+            case State.WalkingToTarget:
+                move.UpdateMovement(diretcion);
+                if (Mathf.Abs((transform.position - targetPosition).x) < 0.5f)
+                    CurrentState = State.Idle;
+                break;
+        }
+    }
+
+    public void WalkToTarget(Vector3 position)
+    {
+        targetPosition = position;
+        CurrentState = State.WalkingToTarget;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("MeowBox"))
+            WalkToTarget(collision.transform.parent.position);
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Food"))
+        {
+            Destroy(collision.gameObject);
+            GameplayScreen.Instance.MeterHumanHunger += 0.3f;
+            Mathf.Clamp01(GameplayScreen.Instance.MeterHumanHunger);
         }
     }
 }
