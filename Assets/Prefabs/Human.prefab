@@ -192,7 +192,7 @@ Transform:
   - {fileID: 1283286452432480965}
   - {fileID: 687627804294528332}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8246658348713713979
 Animator:
@@ -398,10 +398,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8246658348713713979}
-  rbody: {fileID: 0}
+  rbody: {fileID: 6077534730897900736}
   move: {fileID: 6886897762068446972}
   ground: {fileID: 1738377233889933794}
-  sprite: {fileID: 0}
+  sprite: {fileID: 3246348365702086286}
   interactBox: {fileID: 1733373008799157721}
 --- !u!1 &8791723406321337882
 GameObject:
