@@ -17,6 +17,8 @@ public class ScreenManager : MonoBehaviour
             LoadScreen("MainMenu");
         if (Input.GetKeyDown(KeyCode.Alpha2))
             LoadScreen("Gameplay");
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            LoadScreen("GameOver");
     }
 
     public void LoadScreen(string screenName)
@@ -28,6 +30,9 @@ public class ScreenManager : MonoBehaviour
                 break;
             case "Gameplay":
                 UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+                break;
+            case "GameOver":
+                UnityEngine.SceneManagement.SceneManager.LoadScene(2);
                 break;
         }
     }

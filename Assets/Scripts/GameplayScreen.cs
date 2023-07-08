@@ -27,8 +27,19 @@ public class GameplayScreen : Singleton<GameplayScreen>
         GameOver,
     }
 
-    [NonSerialized]
-    public State CurrentState = State.Gameplay;
+    private State currentState = State.Gameplay;
+    public State CurrentState
+    {
+        get => currentState;
+        set
+        {
+            currentState = value;
+            if(currentState == State.GameOver)
+            {
+                ScreenManager.Instance.LoadScreen("GameOver");
+            }
+        }
+    }
 
     public void Update()
     {
