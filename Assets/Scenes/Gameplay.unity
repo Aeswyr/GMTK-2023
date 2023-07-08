@@ -342,6 +342,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level
       objectReference: {fileID: 0}
+    - target: {fileID: 4021957724236805800, guid: f83ccb17079fcd24ca8a9ecafc2b98cc, type: 3}
+      propertyPath: _ignoreFirstCollisionEnter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092426896289968018, guid: f83ccb17079fcd24ca8a9ecafc2b98cc, type: 3}
+      propertyPath: _ignoreFirstCollisionEnter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354420319426190540, guid: f83ccb17079fcd24ca8a9ecafc2b98cc, type: 3}
+      propertyPath: _knockDirection.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5876042487187171125, guid: f83ccb17079fcd24ca8a9ecafc2b98cc, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1284,6 +1296,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 769105053}
     m_Modifications:
+    - target: {fileID: 2342913421454025180, guid: c7b3bffe791e5054db8782b410903805, type: 3}
+      propertyPath: m_text
+      value: 00:00AM
+      objectReference: {fileID: 0}
     - target: {fileID: 4210049149399329164, guid: c7b3bffe791e5054db8782b410903805, type: 3}
       propertyPath: m_Name
       value: WallClockUI
