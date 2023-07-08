@@ -756,7 +756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccada7b87c5274b41bf7ba9d77fe782d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonCount: 5
+  buttonCount: 6
   bufferFrames: 5
   bufferEnabled: 1
 --- !u!114 &6628970958323512171
