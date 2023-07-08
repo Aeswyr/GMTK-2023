@@ -16,26 +16,32 @@ public class MovementHandler : MonoBehaviour
     bool moving = false;
     // Update is called once per frame
 
+    public bool IsMoving => moving;
 
-    void Awake() {
+    void Awake()
+    {
         accelerationTime = accelerationCurve[accelerationCurve.length - 1].time;
         decelerationTime = decelerationCurve[decelerationCurve.length - 1].time;
     }
 
     void FixedUpdate()
     {
-        if (Time.time < timestamp) {
+        if (Time.time < timestamp)
+        {
             if (moving)
                 rbody.velocity = new Vector2(speed * dir * accelerationCurve.Evaluate(Time.time - timestamp + accelerationTime), rbody.velocity.y);
             else
                 rbody.velocity = new Vector2(decelSpeed * dir * decelerationCurve.Evaluate(Time.time - timestamp + decelerationTime), rbody.velocity.y);
-        } else {
+        }
+        else
+        {
             if (moving)
                 rbody.velocity = new Vector2(speed * dir, rbody.velocity.y);
         }
     }
 
-    public void StartDeceleration() {
+    public void StartDeceleration()
+    {
         moving = false;
         timestamp = Time.time + decelerationTime;
         decelSpeed = speed;
@@ -43,18 +49,15 @@ public class MovementHandler : MonoBehaviour
             decelSpeed = Mathf.Abs(rbody.velocity.x);
     }
 
-    public void StartAcceleration(float dir) {
+    public void StartAcceleration(float dir)
+    {
         moving = true;
         timestamp = Time.time + accelerationTime;
     }
 
-    public void UpdateMovement(float dir) {
+    public void UpdateMovement(float dir)
+    {
         this.dir = dir;
         moving = true;
     }
-
-
-    
-
-
 }

@@ -34,7 +34,7 @@ public class GameplayScreen : Singleton<GameplayScreen>
         set
         {
             currentState = value;
-            if(currentState == State.GameOver)
+            if (currentState == State.GameOver)
             {
                 ScreenManager.Instance.LoadScreen("GameOver");
             }
@@ -43,7 +43,7 @@ public class GameplayScreen : Singleton<GameplayScreen>
 
     public void Update()
     {
-        switch(CurrentState)
+        switch (CurrentState)
         {
             case State.Gameplay:
                 {
@@ -87,7 +87,7 @@ public class GameplayScreen : Singleton<GameplayScreen>
 
         int hoursInt = Mathf.FloorToInt(hours) + 8;
         TimeAMPM ampm = TimeAMPM.AM;
-        if (hoursInt > 11) 
+        if (hoursInt > 11)
             ampm = TimeAMPM.PM;
         if (hoursInt > 12)
             hoursInt %= 12;
