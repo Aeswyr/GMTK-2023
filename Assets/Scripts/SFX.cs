@@ -25,9 +25,11 @@ public class SFX : MonoBehaviour
                     return audioSource;
                 }, (audioSource) =>
                 {
+                    if (!audioSource) return;
                     audioSource.gameObject.SetActive(true);
                 }, (audioSource) =>
                 {
+                    if (!audioSource) return;
                     audioSource.gameObject.SetActive(false);
                 });
             }
