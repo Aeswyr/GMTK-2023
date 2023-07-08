@@ -339,7 +339,7 @@ Transform:
   - {fileID: 8704519770668516081}
   - {fileID: 7727530952676395474}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &-7733837568608383394
 SpriteRenderer:
@@ -583,7 +583,7 @@ MonoBehaviour:
   footOffset: {x: 0.5, y: 0}
   floorDetectMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 32832
 --- !u!114 &5777266936116696603
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -237,7 +237,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -384,7 +384,7 @@ MonoBehaviour:
   footOffset: {x: 0.5, y: 0}
   floorDetectMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 32768
 --- !u!114 &3654651135972791778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,7 +475,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 7755592d66cc93d4fb26e0923f77e4f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
