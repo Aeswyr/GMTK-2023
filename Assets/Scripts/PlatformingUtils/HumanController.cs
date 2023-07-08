@@ -22,6 +22,40 @@ public class HumanController : MonoBehaviour
     }
 
     private State currentState = State.Idle;
+    private State CurrentState
+    {
+        get => currentState;
+        set
+        {
+            currentState = value;
+            stateTimer = 0.0f;
+            switch (currentState)
+            {
+                case State.Idle:
+                    {
+                        currentState = State.Idle;
+                        move.StartDeceleration();
+                        animator.SetBool("walking", false);
+                    }
+                    break;
+                case State.WalkingRandomly:
+                    {
+                        move.StartAcceleration(diretcion);
+                        sprite.flipX = diretcion > 0;
+                        animator.SetBool("walking", true);
+                    }
+                    break;
+                case State.WalkingToTarget:
+                    {
+                        diretcion = (targetPosition - transform.position).x < 0 ? -1 : 1;
+                        move.StartAcceleration(diretcion);
+                        sprite.flipX = diretcion > 0;
+                        animator.SetBool("walking", true);
+                    }
+                    break;
+            }
+        }
+    }
     private float stateTimer = 0.0f;
     private float diretcion = -1;
     private Vector3 targetPosition = Vector3.zero;
@@ -50,33 +84,19 @@ public class HumanController : MonoBehaviour
             case State.Idle:
                 if (stateTimer > 2.0f)
                 {
-                    stateTimer = 0.0f;
-                    currentState = State.WalkingRandomly;
                     diretcion *= -1;
-                    move.StartAcceleration(diretcion);
-                    sprite.flipX = diretcion > 0;
-                    animator.SetBool("walking", true);
+                    CurrentState = State.WalkingRandomly;
                 }
                 break;
             case State.WalkingRandomly:
                 move.UpdateMovement(diretcion);
                 if (stateTimer > 2.0f)
-                {
-                    stateTimer = 0.0f;
-                    currentState = State.Idle;
-                    move.StartDeceleration();
-                    animator.SetBool("walking", false);
-                }
+                    CurrentState = State.Idle;
                 break;
             case State.WalkingToTarget:
                 move.UpdateMovement(diretcion);
                 if (Mathf.Abs((transform.position - targetPosition).x) < 0.5f)
-                {
-                    stateTimer = 0.0f;
-                    currentState = State.Idle;
-                    move.StartDeceleration();
-                    animator.SetBool("walking", false);
-                }
+                    CurrentState = State.Idle;
                 break;
         }
     }
@@ -84,12 +104,8 @@ public class HumanController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("MeowBox"))
         {
-            currentState = State.WalkingToTarget;
             targetPosition = collision.transform.parent.position;
-            diretcion = (targetPosition - transform.position).x < 0 ? -1 : 1;
-            move.StartAcceleration(diretcion);
-            sprite.flipX = diretcion > 0;
-            animator.SetBool("walking", true);
+            CurrentState = State.WalkingToTarget;
         }
     }
 }
