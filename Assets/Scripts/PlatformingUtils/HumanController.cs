@@ -107,5 +107,11 @@ public class HumanController : MonoBehaviour
             targetPosition = collision.transform.parent.position;
             CurrentState = State.WalkingToTarget;
         }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Food"))
+        {
+            Destroy(collision.gameObject);
+            GameplayScreen.Instance.MeterHumanHunger += 0.3f;
+            Mathf.Clamp01(GameplayScreen.Instance.MeterHumanHunger);
+        }
     }
 }
