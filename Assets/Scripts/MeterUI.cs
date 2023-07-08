@@ -19,8 +19,8 @@ public class MeterUI : MonoBehaviour
 
     private void Awake()
     {
-        rectTransform = transform.GetChild(0).GetComponent<RectTransform>();
         gameplayScreen = GameplayScreen.Instance;
+        rectTransform = transform.GetChild(0).GetComponent<RectTransform>();
     }
 
     private void Start()

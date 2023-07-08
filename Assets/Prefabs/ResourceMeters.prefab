@@ -223,7 +223,6 @@ GameObject:
   - component: {fileID: 6597531655409664498}
   - component: {fileID: 8395957113629848143}
   - component: {fileID: 2902102377907450270}
-  - component: {fileID: 4246966021380263589}
   m_Layer: 5
   m_Name: Bar
   m_TagString: Untagged
@@ -289,19 +288,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4246966021380263589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3654662455529650180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd51d8dbac42091499475fff2656a654, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 0
 --- !u!1 &5080871769265549825
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +351,6 @@ GameObject:
   - component: {fileID: 4833327723097113430}
   - component: {fileID: 3802351716171211806}
   - component: {fileID: 7437627944743212834}
-  - component: {fileID: 4430377251348859473}
   m_Layer: 5
   m_Name: Bar
   m_TagString: Untagged
@@ -431,19 +416,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4430377251348859473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6561865854162070187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd51d8dbac42091499475fff2656a654, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 0
 --- !u!1 &6749006972685770397
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,7 +527,6 @@ GameObject:
   - component: {fileID: 5855223470445326810}
   - component: {fileID: 6635401430079994604}
   - component: {fileID: 2792111422094638544}
-  - component: {fileID: 3458346841225276351}
   m_Layer: 5
   m_Name: Bar
   m_TagString: Untagged
@@ -621,19 +592,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3458346841225276351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8062258737977341731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd51d8dbac42091499475fff2656a654, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 0
 --- !u!1 &9103371816337831763
 GameObject:
   m_ObjectHideFlags: 0
