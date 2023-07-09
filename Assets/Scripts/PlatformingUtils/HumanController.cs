@@ -133,5 +133,10 @@ public class HumanController : MonoBehaviour
             GameplayScreen.Instance.MeterHumanHunger += 0.3f;
             Mathf.Clamp01(GameplayScreen.Instance.MeterHumanHunger);
         }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Hurtbox"))
+        {
+            GameplayScreen.Instance.MeterHumanHappiness -= 0.1f;
+            Mathf.Clamp01(GameplayScreen.Instance.MeterHumanHunger);
+        }
     }
 }
