@@ -342,18 +342,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level
       objectReference: {fileID: 0}
-    - target: {fileID: 4021957724236805800, guid: f83ccb17079fcd24ca8a9ecafc2b98cc, type: 3}
-      propertyPath: _ignoreFirstCollisionEnter
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092426896289968018, guid: f83ccb17079fcd24ca8a9ecafc2b98cc, type: 3}
-      propertyPath: _ignoreFirstCollisionEnter
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4354420319426190540, guid: f83ccb17079fcd24ca8a9ecafc2b98cc, type: 3}
-      propertyPath: _knockDirection.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5876042487187171125, guid: f83ccb17079fcd24ca8a9ecafc2b98cc, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -397,10 +385,6 @@ PrefabInstance:
     - target: {fileID: 5876042487187171125, guid: f83ccb17079fcd24ca8a9ecafc2b98cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9036357024663040032, guid: f83ccb17079fcd24ca8a9ecafc2b98cc, type: 3}
-      propertyPath: _knockDirection.x
-      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
