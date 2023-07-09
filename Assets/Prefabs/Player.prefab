@@ -339,7 +339,7 @@ Transform:
   - {fileID: 8704519770668516081}
   - {fileID: 7727530952676395474}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &-7733837568608383394
 SpriteRenderer:
@@ -707,6 +707,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a5c6db2c-8507-4921-accd-a9694d757041
     m_ActionName: Player/Meow[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4926697914665971388}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: Menu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8bfb65fd-202e-4c8c-b9d2-d4ee1e6216dd
+    m_ActionName: Player/Menu[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4926697914665971388}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: Any
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8c0166e8-532b-4f41-9356-90d462eed9ae
+    m_ActionName: Player/Any[/Keyboard/anyKey]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -724,7 +756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccada7b87c5274b41bf7ba9d77fe782d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonCount: 5
+  buttonCount: 6
   bufferFrames: 5
   bufferEnabled: 1
 --- !u!114 &6628970958323512171
