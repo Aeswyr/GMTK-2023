@@ -34,6 +34,9 @@ public class ScreenManager : MonoBehaviour
             case "GameOver":
                 UnityEngine.SceneManagement.SceneManager.LoadScene(2);
                 break;
+            case "Credits":
+                UnityEngine.SceneManagement.SceneManager.LoadScene(3);
+                break;
         }
     }
 }
