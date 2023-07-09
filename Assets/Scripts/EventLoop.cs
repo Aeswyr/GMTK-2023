@@ -53,11 +53,11 @@ public class EventLoop : MonoBehaviour
         {
             case EventType.LoseHappiness:
                 GameplayScreen.Instance.MeterHumanHappiness -= Random.Range(0.05f, 0.1f);
-                popUpScript.Initialize("I am sad.");
+                popUpScript.Initialize("Human sadder.");
                 break;
             case EventType.GetHangry:
                 GameplayScreen.Instance.MeterHumanHunger -= Random.Range(0.1f, 0.2f);
-                popUpScript.Initialize("I hunger.");
+                popUpScript.Initialize("Human hungers.");
                 break;
         }
         Destroy(popUp, duration);
