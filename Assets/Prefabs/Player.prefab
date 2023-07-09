@@ -583,7 +583,7 @@ MonoBehaviour:
   footOffset: {x: 0.5, y: 0}
   floorDetectMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 32832
 --- !u!114 &5777266936116696603
 MonoBehaviour:
   m_ObjectHideFlags: 0
