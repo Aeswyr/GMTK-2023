@@ -10,6 +10,7 @@ public class HumanController : MonoBehaviour
     [SerializeField] private GroundedCheck ground;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private GameObject interactBox;
+    [SerializeField] private AudioSourceHelper foodAudioSource;
 
     private bool grounded; // is the player touching the ground this physics frame
     private bool actionable = true;
@@ -130,8 +131,8 @@ public class HumanController : MonoBehaviour
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Food"))
         {
             Destroy(collision.gameObject);
-            GameplayScreen.Instance.MeterHumanHunger += 0.3f;
-            Mathf.Clamp01(GameplayScreen.Instance.MeterHumanHunger);
+            GameplayScreen.Instance.MeterHumanHunger = Mathf.Clamp01(GameplayScreen.Instance.MeterHumanHunger + 0.3f);
+            foodAudioSource.PlayIfNotPlaying();
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Hurtbox"))
         {
