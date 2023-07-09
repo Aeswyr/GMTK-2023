@@ -25,6 +25,7 @@ public class GameplayScreen : Singleton<GameplayScreen>
     private int spawnedMouseInHour = -1;
 
     [SerializeField] private UnityEvent onMouseSpawn;
+    [SerializeField] private GameObject instructionsWindow;
 
     public enum State
     {
@@ -112,5 +113,14 @@ public class GameplayScreen : Singleton<GameplayScreen>
         int minutesInt = Mathf.FloorToInt(minutes * 60);
 
         return (hoursInt, minutesInt, ampm);
+    }
+
+    public void OnOpenInstructions()
+    {
+        instructionsWindow.SetActive(true);
+    }
+    public void OnCloseInstructions()
+    {
+        instructionsWindow.SetActive(false);
     }
 }
