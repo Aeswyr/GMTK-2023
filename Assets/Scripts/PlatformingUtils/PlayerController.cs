@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
             StartAction();
             animator.SetBool("walking", false);
             animator.SetTrigger("push");
-            pushBox.SetActive(true);
+            
         }
 
         if (grounded && InputHandler.Instance.secondary.pressed)
@@ -91,6 +91,12 @@ public class PlayerController : MonoBehaviour
             interactBox.transform.localPosition = Vector3.zero;
             stamina.DecreaseByMeowCost();
         }
+    }
+
+    private void TriggerPushbox() {
+        Vector3 facing = new Vector3(sprite.flipX ? -0.4f : 0.4f, 0, 0);
+        pushBox.transform.localPosition = facing;
+        pushBox.SetActive(true);
     }
 
     private void StartAction()
