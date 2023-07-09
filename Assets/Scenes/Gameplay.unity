@@ -671,6 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57a6e58f84c1af4b839577fa17c2991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabMouse: {fileID: 7351076748524903545, guid: 20150f0268132af45a1b48b784fb2a5d, type: 3}
 --- !u!4 &789908657
 Transform:
   m_ObjectHideFlags: 0

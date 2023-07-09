@@ -21,6 +21,9 @@ public class GameplayScreen : Singleton<GameplayScreen>
     public const float MeterDepleteRateHumanHunger = 0.01f;
     public const float MeterDepleteRateCatStamina = 0.001f;
 
+    [SerializeField] private GameObject prefabMouse;
+    private int spawnedMouseInHour = -1;
+
     public enum State
     {
         Gameplay,
@@ -67,6 +70,21 @@ public class GameplayScreen : Singleton<GameplayScreen>
                     {
                         CurrentState = State.GameOver;
                         break;
+                    }
+
+                    int hour = Mathf.FloorToInt(time / RealSecondsToInGameHours);
+                    if(hour != 0 && spawnedMouseInHour != hour)
+                    {
+                        spawnedMouseInHour = hour;
+                        Vector3 pos = new Vector3(-15, 0, 0);
+                        float direction = 1;
+                        if(hour % 2 == 0)
+                        {
+                            pos = new Vector3(15, 0, 0);
+                            direction = -1;
+                        }
+                        var mouse = Instantiate(prefabMouse, pos, Quaternion.identity).GetComponent<MouseController>();
+                        mouse.Init(direction);
                     }
                 }
                 break;
