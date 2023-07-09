@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameplayScreen : Singleton<GameplayScreen>
 {
@@ -22,6 +23,8 @@ public class GameplayScreen : Singleton<GameplayScreen>
 
     [SerializeField] private GameObject prefabMouse;
     private int spawnedMouseInHour = -1;
+
+    [SerializeField] private UnityEvent onMouseSpawn;
 
     public enum State
     {
@@ -69,17 +72,18 @@ public class GameplayScreen : Singleton<GameplayScreen>
                     }
 
                     int hour = Mathf.FloorToInt(time / RealSecondsToInGameHours);
-                    if(hour != 0 && spawnedMouseInHour != hour)
+                    if (hour != 0 && spawnedMouseInHour != hour)
                     {
                         spawnedMouseInHour = hour;
                         Vector3 pos = new Vector3(-15, 0, 0);
                         float direction = 1;
-                        if(hour % 2 == 0)
+                        if (hour % 2 == 0)
                         {
                             pos = new Vector3(15, 0, 0);
                             direction = -1;
                         }
                         var mouse = Instantiate(prefabMouse, pos, Quaternion.identity).GetComponent<MouseController>();
+                        onMouseSpawn.Invoke();
                         mouse.Init(direction);
                     }
                 }
