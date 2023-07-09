@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: mixer/master/volume
-  _defaultValue: 1
+  _defaultValue: 0.7
 --- !u!1001 &399063442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: mixer/music/volume
-  _defaultValue: 1
+  _defaultValue: 0.7
 --- !u!1 &510687835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,7 +1760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: mixer/sfx/volume
-  _defaultValue: 1
+  _defaultValue: 0.7
 --- !u!1 &1345788995
 GameObject:
   m_ObjectHideFlags: 0

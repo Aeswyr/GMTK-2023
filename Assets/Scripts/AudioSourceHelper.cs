@@ -3,16 +3,16 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AudioSourceHelper : MonoBehaviour
 {
-    private AudioSource _audioSource;
+    public AudioSource AudioSource { get; private set; }
 
     private void Awake()
     {
-        _audioSource = GetComponent<AudioSource>();
+        AudioSource = GetComponent<AudioSource>();
     }
 
     public void PlayIfNotPlaying()
     {
-        if (_audioSource.isPlaying) return;
-        _audioSource.Play();
+        if (AudioSource.isPlaying) return;
+        AudioSource.Play();
     }
 }
