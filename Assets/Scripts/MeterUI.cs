@@ -20,12 +20,12 @@ public class MeterUI : MonoBehaviour
     private void Awake()
     {
         gameplayScreen = GameplayScreen.Instance;
-        rectTransform = transform.GetChild(0).GetComponent<RectTransform>();
+        rectTransform = transform.GetChild(1).GetComponent<RectTransform>();
     }
 
     private void Start()
     {
-        initSize = rectTransform.sizeDelta.y;
+        initSize = rectTransform.sizeDelta.x;
     }
 
     private void Update()
@@ -45,7 +45,7 @@ public class MeterUI : MonoBehaviour
         }
 
         var size = rectTransform.sizeDelta;
-        size.y = value * initSize;
+        size.x = value * initSize;
         rectTransform.sizeDelta = size;
     }
 }
