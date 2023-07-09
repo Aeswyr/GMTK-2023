@@ -15,7 +15,7 @@ public class HumanController : MonoBehaviour
     private bool grounded; // is the player touching the ground this physics frame
     private bool actionable = true;
 
-    private enum State
+    public enum State
     {
         Idle,
         WalkingRandomly,
@@ -23,7 +23,7 @@ public class HumanController : MonoBehaviour
         Sleeping,
     }
 
-    private State currentState = State.Idle;
+    public State currentState = State.Idle;
     private State CurrentState
     {
         get => currentState;
