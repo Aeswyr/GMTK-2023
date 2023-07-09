@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WallClock : MonoBehaviour
 {
     GameplayScreen gameplayScreen;
-    TextMeshProUGUI textMeshProUGUI;
+    Text text;
 
     void Start()
     {
         gameplayScreen = GameplayScreen.Instance;
-        textMeshProUGUI = GetComponent<TextMeshProUGUI>();
+        text = GetComponent<Text>();
     }
 
     void Update()
     {
         var hoursMinutes = gameplayScreen.GetTimeMinutesHours();
-        textMeshProUGUI.text = $"{hoursMinutes.Item1}:{hoursMinutes.Item2:D2}{hoursMinutes.Item3}";
+        text.text = $"{hoursMinutes.Item1}:{hoursMinutes.Item2:D2}{hoursMinutes.Item3}";
     }
 }
