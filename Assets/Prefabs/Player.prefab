@@ -120,7 +120,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3786636565134283005, guid: bd51f850e7d4d3e4b8469fc1f4383283, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 05aef257d3773ba47b5b0793274723e9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a230fcf007623894a8b0fc3d0a704dda, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -339,7 +339,7 @@ Transform:
   - {fileID: 8704519770668516081}
   - {fileID: 7727530952676395474}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &-7733837568608383394
 SpriteRenderer:
@@ -771,10 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a16dec657edbbe459f14392de3944bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepClips:
-  - {fileID: 8300000, guid: 199ade8747cbffb4787540ef2667d83a, type: 3}
-  - {fileID: 8300000, guid: fbc059741fe5e4240a471e30c1216af5, type: 3}
-  - {fileID: 8300000, guid: fe1975bc72fa8a0448161fa6af58e08b, type: 3}
+  clips: []
 --- !u!1 &5394997565886404670
 GameObject:
   m_ObjectHideFlags: 0
