@@ -19,6 +19,7 @@ public class HumanController : MonoBehaviour
         Idle,
         WalkingRandomly,
         WalkingToTarget,
+        Sleeping,
     }
 
     private State currentState = State.Idle;
@@ -36,6 +37,7 @@ public class HumanController : MonoBehaviour
                         currentState = State.Idle;
                         move.StartDeceleration();
                         animator.SetBool("walking", false);
+                        animator.SetBool("sleeping", false);
                     }
                     break;
                 case State.WalkingRandomly:
@@ -43,6 +45,7 @@ public class HumanController : MonoBehaviour
                         move.StartAcceleration(diretcion);
                         sprite.flipX = diretcion > 0;
                         animator.SetBool("walking", true);
+                        animator.SetBool("sleeping", false);
                     }
                     break;
                 case State.WalkingToTarget:
@@ -51,6 +54,12 @@ public class HumanController : MonoBehaviour
                         move.StartAcceleration(diretcion);
                         sprite.flipX = diretcion > 0;
                         animator.SetBool("walking", true);
+                        animator.SetBool("sleeping", false);
+                    }
+                    break;
+                case State.Sleeping:
+                    {
+                        animator.SetBool("sleeping", true);
                     }
                     break;
             }
@@ -59,6 +68,11 @@ public class HumanController : MonoBehaviour
     private float stateTimer = 0.0f;
     private float diretcion = -1;
     private Vector3 targetPosition = Vector3.zero;
+
+    private void Start()
+    {
+        CurrentState = State.Sleeping;
+    }
 
     private void StartAction()
     {
@@ -79,7 +93,7 @@ public class HumanController : MonoBehaviour
         animator.SetBool("grounded", grounded && rbody.velocity.y < 1);
         stateTimer += Time.fixedDeltaTime;
 
-        switch (currentState)
+        switch (CurrentState)
         {
             case State.Idle:
                 if (stateTimer > 2.0f)
@@ -97,6 +111,8 @@ public class HumanController : MonoBehaviour
                 move.UpdateMovement(diretcion);
                 if (Mathf.Abs((transform.position - targetPosition).x) < 0.5f)
                     CurrentState = State.Idle;
+                break;
+            case State.Sleeping:
                 break;
         }
     }
