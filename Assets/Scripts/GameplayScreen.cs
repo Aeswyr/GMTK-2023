@@ -19,7 +19,6 @@ public class GameplayScreen : Singleton<GameplayScreen>
 
     public const float MeterDepleteRateHumanHappiness = 0.001f;
     public const float MeterDepleteRateHumanHunger = 0.01f;
-    public const float MeterDepleteRateCatStamina = 0.001f;
 
     [SerializeField] private GameObject prefabMouse;
     private int spawnedMouseInHour = -1;
@@ -62,9 +61,6 @@ public class GameplayScreen : Singleton<GameplayScreen>
 
                     MeterHumanHunger -= Time.deltaTime * MeterDepleteRateHumanHunger;
                     MeterHumanHunger = Mathf.Clamp01(MeterHumanHunger);
-
-                    MeterCatStamina -= Time.deltaTime * MeterDepleteRateCatStamina;
-                    MeterCatStamina = Mathf.Clamp01(MeterCatStamina);
 
                     if (MeterHumanHappiness <= 0.0f || MeterHumanHunger <= 0.0f || MeterCatStamina <= 0.0f)
                     {

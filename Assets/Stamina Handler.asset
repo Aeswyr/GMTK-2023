@@ -15,3 +15,5 @@ MonoBehaviour:
   moveCost: 0.001
   jumpCost: 0.1
   meowCost: 0.01
+  pushCost: 0.1
+  gainByStayingStill: 0.002

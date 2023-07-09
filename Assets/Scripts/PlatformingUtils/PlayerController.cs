@@ -35,9 +35,9 @@ public class PlayerController : MonoBehaviour
             ParseInputs();
 
         if (move.IsMoving)
-        {
             stamina.DecreaseByMovementCost();
-        }
+        else
+            stamina.IncreaseWhenStill();
     }
 
     private void ParseInputs()
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
             StartAction();
             animator.SetBool("walking", false);
             animator.SetTrigger("push");
-            
+            stamina.DecreaseByPushCost();
         }
 
         if (grounded && InputHandler.Instance.secondary.pressed)

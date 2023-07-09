@@ -5,6 +5,8 @@ public class StaminaHandler : ScriptableObject
     [SerializeField] private float moveCost = .001f;
     [SerializeField] private float jumpCost = .10f;
     [SerializeField] private float meowCost = .01f;
+    [SerializeField] private float pushCost = .01f;
+    [SerializeField] private float gainByStayingStill = 0.2f;
 
     public void Increase(float value)
     {
@@ -29,5 +31,14 @@ public class StaminaHandler : ScriptableObject
     public void DecreaseByMeowCost()
     {
         Decrease(meowCost);
+    }
+    public void DecreaseByPushCost()
+    {
+        Decrease(pushCost);
+    }
+
+    public void IncreaseWhenStill()
+    {
+        Increase(gainByStayingStill);
     }
 }
