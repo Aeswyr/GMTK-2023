@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &61385384 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4210049149399329164, guid: dfbcdcd62fe27ee4482b7c1da4c7ae65, type: 3}
+  m_PrefabInstance: {fileID: 1200613326}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &161531923
 GameObject:
   m_ObjectHideFlags: 3
@@ -918,6 +923,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   human: {fileID: 1944475603}
+  canvas: {fileID: 769105049}
+  speechBubble: {fileID: 4210049149399329164, guid: dfbcdcd62fe27ee4482b7c1da4c7ae65, type: 3}
+  example: {fileID: 61385384}
+  duration: 7
 --- !u!4 &1138358069
 Transform:
   m_ObjectHideFlags: 0
@@ -1106,10 +1115,26 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4210049149399329164, guid: dfbcdcd62fe27ee4482b7c1da4c7ae65, type: 3}
       propertyPath: m_Name
-      value: SpeechBubble
+      value: ExampleSpeechBubble
       objectReference: {fileID: 0}
     - target: {fileID: 4210049149399329164, guid: dfbcdcd62fe27ee4482b7c1da4c7ae65, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429101099017562143, guid: dfbcdcd62fe27ee4482b7c1da4c7ae65, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429101099017562143, guid: dfbcdcd62fe27ee4482b7c1da4c7ae65, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941452074622679268, guid: dfbcdcd62fe27ee4482b7c1da4c7ae65, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941452074622679268, guid: dfbcdcd62fe27ee4482b7c1da4c7ae65, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6808656237557565451, guid: dfbcdcd62fe27ee4482b7c1da4c7ae65, type: 3}
@@ -1182,7 +1207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6808656237557565451, guid: dfbcdcd62fe27ee4482b7c1da4c7ae65, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -35
+      value: -88.5
       objectReference: {fileID: 0}
     - target: {fileID: 6808656237557565451, guid: dfbcdcd62fe27ee4482b7c1da4c7ae65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
