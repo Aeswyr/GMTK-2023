@@ -73,7 +73,7 @@ public class GameplayScreen : Singleton<GameplayScreen>
                     }
 
                     int hour = Mathf.FloorToInt(time / RealSecondsToInGameHours);
-                    if(spawnedMouseInHour != hour)
+                    if(hour != 0 && spawnedMouseInHour != hour)
                     {
                         spawnedMouseInHour = hour;
                         Vector3 pos = new Vector3(-15, 0, 0);
